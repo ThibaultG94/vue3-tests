@@ -1,6 +1,8 @@
 const application = {
 	data() {
-		return {};
+		return {
+			done: false,
+		};
 	},
 };
 
