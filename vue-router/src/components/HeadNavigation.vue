@@ -19,7 +19,16 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav me-auto mb-2 mb-md-0">
-					<li class="nav-item">
+					<router-link
+						v-for="menu in menus"
+						:key="menu.id"
+						:to="{
+							name: 'menu.show',
+							params: { id: menu.id, slug: menu.slug },
+						}">
+						<li class="nav-item">{{ menu.name }} | &nbsp;</li>
+					</router-link>
+					<!-- <li class="nav-item">
 						<router-link class="nav-link" to="/">Home</router-link>
 					</li>
 					<li class="nav-item">
@@ -36,12 +45,24 @@
 						<router-link class="nav-link" to="/menu-bk-burger"
 							>Burger King</router-link
 						>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
 	</nav>
 </template>
+
+<script>
+import menuData from '@/data.json';
+
+export default {
+	data() {
+		return {
+			menus: menuData.menus,
+		};
+	},
+};
+</script>
 
 <style scoped>
 a.lien-actif {

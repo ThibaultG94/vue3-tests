@@ -11,7 +11,7 @@
 						:key="menu.id"
 						:to="{
 							name: 'menu.show',
-							params: { id: menu.id },
+							params: { id: menu.id, slug: menu.slug },
 						}">
 						<div class="col">
 							<div class="card shadow-sm">
